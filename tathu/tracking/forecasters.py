@@ -137,9 +137,7 @@ class ConservativeMergeSystemsOF(object):
                 continue
 
             if sys.event == LifeCycleEvent.CONTINUITY:
-                base = compute_last_centroid(sys)
-                dx, dy = delta(sys.geom.Centroid(), base, elapsedtime)
-                
+                # Calculates the displacement vector using the Optical Flow method
                 descriptor.describe(self.gridC, [sys])
 
                 dx = (sys.attrs['u_mean'])*delta_lon/elapsedtime
